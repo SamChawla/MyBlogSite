@@ -25,6 +25,8 @@ SECRET_KEY = '$v0c3m)tlv$3aeyzasug^2t3syijtubc*_*7#54#)lnk+udci('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+SITE_ID = 1
+
 ALLOWED_HOSTS = []
 
 
@@ -43,6 +45,10 @@ INSTALLED_APPS = [
 
     # Third Party Installs
     'taggit',
+    
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
+    'django.contrib.postgres',
 ]
 
 MIDDLEWARE = [
@@ -79,10 +85,21 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'blog',
+        'USER': 'blog',
+        'PASSWORD': '',
+        'HOST':'localhost',
     }
 }
 
